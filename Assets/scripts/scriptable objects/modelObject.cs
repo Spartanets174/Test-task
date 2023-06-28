@@ -8,8 +8,6 @@ public class modelObject : ScriptableObject
     public GameObject model;
     public string modelName;
     public string modelDescription;
-    public List<GameObject> cutList;
-    public GameObject decomposeCenter;
-    public List<GameObject> decomposeList;
-    
-}
+    [SerializeReference, SubclassSelector] public List<feature> CurrentFeatureList;
+};    
+

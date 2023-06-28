@@ -16,5 +16,12 @@ MonoBehaviour:
   modelName: "\u041A\u0443\u0431"
   modelDescription: "\u041F\u0440\u043E\u0441\u0442\u043E \u043A\u0443\u0431 \u044F
     \u0432 \u0448\u043E\u043A\u0435"
-  cutList: []
-  decomposeList: []
+  CurrentFeatureList:
+  - rid: 4112037788656336907
+  references:
+    version: 2
+    RefIds:
+    - rid: 4112037788656336907
+      type: {class: decomposeFeature, ns: , asm: Assembly-CSharp}
+      data:
+        featureName: "\u0414\u0435\u043A\u043E\u043C\u043F\u043E\u0437\u0438\u0446\u0438\u044F"
