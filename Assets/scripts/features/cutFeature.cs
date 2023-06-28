@@ -3,16 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
-public class cutFeature : feature
+public class cutFeature : Ifeature
 {
-    public cutFeature(string name) : base(name)
-    {
-        featureName = name;
-    }
+    public string Name = "Разрез";
 
-    public override IEnumerator featureRealization(modelObject model)
+    string Ifeature.Name => Name;
+
+    public void featureRealization(modelObject model)
     {
-        Debug.Log("Разрез");
-        yield break;
+        Debug.Log("Разрез");;
     }
 }

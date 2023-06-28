@@ -3,16 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
-public class normal : feature
+public class normal : Ifeature
 {
-    public normal(string name) : base(name)
-    {
-        featureName = name;
-    }
+    public string Name = "Обычное состояние";
 
-    public override IEnumerator featureRealization(modelObject model)
+    string Ifeature.Name => Name;
+
+    public void featureRealization(modelObject model)
     {
         Debug.Log("Норма");
-        yield break;
     }
 }

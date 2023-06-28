@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class decomposeFeature : feature
+public class decomposeFeature : Ifeature
 {
-    public decomposeFeature(string name) : base(name)
-    {
-        featureName = name;
-    }
-    public override IEnumerator featureRealization(modelObject model)
+     string Name = "Декомпозиция";
+
+    string Ifeature.Name => Name;
+
+    public void featureRealization(modelObject model)
     {
         Debug.Log("Декомпозиция");
-        yield break;
     }
 }
