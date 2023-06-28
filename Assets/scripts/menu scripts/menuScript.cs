@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Скрипт для переключения между сценами
 public class menuScript : MonoBehaviour
 {
     public void Exit()

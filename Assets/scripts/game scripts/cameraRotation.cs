@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Позаимствованный скрипт вращения камеры
 public class cameraRotation : MonoBehaviour
 {
     public Camera sceneCamera;

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
 public class normal : Ifeature
-{
+{   
+    //Указание имени самой способности
     public string Name = "Обычное состояние";
-
+    //Передача имени в интерфейс
     string Ifeature.Name => Name;
 
     public void featureRealization(GameObject model)
