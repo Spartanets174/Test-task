@@ -9,8 +9,12 @@ public class normal : Ifeature
 
     string Ifeature.Name => Name;
 
-    public void featureRealization(modelObject model)
+    public void featureRealization(GameObject model)
     {
+        for (int i = 0; i < model.transform.childCount; i++)
+        {
+           model.transform.GetChild(i).gameObject.SetActive(true);
+        }
         Debug.Log("Норма");
     }
 }

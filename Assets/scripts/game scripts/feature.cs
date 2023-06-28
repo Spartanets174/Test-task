@@ -5,5 +5,5 @@ using UnityEngine;
 public interface Ifeature
 {
     string Name { get; }
-    public void featureRealization(modelObject model);
+    public void featureRealization(GameObject model);
 }

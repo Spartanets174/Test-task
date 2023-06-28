@@ -6,5 +6,6 @@ using UnityEngine;
 
 public class currentModelManager : MonoBehaviour
 {
+   public GameObject model;
    public Ifeature[] ifeatures = Array.Empty<Ifeature>();
 }

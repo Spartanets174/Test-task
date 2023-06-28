@@ -10,7 +10,7 @@ public class decomposeFeature : Ifeature
 
     string Ifeature.Name => Name;
 
-    public void featureRealization(modelObject model)
+    public void featureRealization(GameObject model)
     {
         Debug.Log("Декомпозиция");
     }

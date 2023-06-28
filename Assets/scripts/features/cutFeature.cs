@@ -9,8 +9,15 @@ public class cutFeature : Ifeature
 
     string Ifeature.Name => Name;
 
-    public void featureRealization(modelObject model)
+    public void featureRealization(GameObject model)
     {
+        for (int i = 0; i < model.transform.childCount; i++)
+        {
+            if (i%2==0)
+            {
+                model.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
         Debug.Log("Разрез");;
     }
 }

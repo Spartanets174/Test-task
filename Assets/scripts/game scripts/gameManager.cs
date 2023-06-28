@@ -31,6 +31,7 @@ public class gameManager : MonoBehaviour
         GameObject spawnedObject = Instantiate(obj.model, Vector3.zero, Quaternion.identity, modelParent);
         spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
         publicSpawnedObject = spawnedObject;
+        currentModelManager.model = spawnedObject;
 
         List<string> DropOptions = new List<string>();
         normal = new normal();
@@ -51,19 +52,14 @@ public class gameManager : MonoBehaviour
     }
     void DropdownValueChanged(Dropdown dropdown, modelObject model)
     {
-
         if (dropdown.value == 0)
         {
-            Debug.Log("ASD");
-            normal.featureRealization(model);
+            normal.featureRealization(currentModelManager.model);
         }
         else
         {
-            Debug.Log("sdf");
-            model.CurrentFeatureList[dropdown.value - 1]?.featureRealization(model);
+            model.CurrentFeatureList[dropdown.value - 1]?.featureRealization(currentModelManager.model);
         }
-
-        Debug.Log(dropdown.value);
     }
 }
 
