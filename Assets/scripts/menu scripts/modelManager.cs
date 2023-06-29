@@ -13,7 +13,6 @@ public class modelManager : MonoBehaviour
     //Ссылка на scriptable object со всеми моделями и моделей, выюранной пользователем
     public allModelsObjects modelsObjects;
 
-
     List<modelObject> models;
 
     private void Start()
@@ -25,9 +24,11 @@ public class modelManager : MonoBehaviour
             //Спавн самого интерфейса и заполнение интерфейса
             GameObject modelObject = Instantiate(modelPrefab, Vector3.zero, Quaternion.identity, parentToSpawn.transform);
             modelObject.transform.localPosition = new Vector3(0, 0, 0);
+
+            
             modelObject.transform.GetComponent<modelDisplay>().modelObject = models[i];
 
-            //Спавн 3d модели на интерфейс
+        /*    //Спавн 3d модели на интерфейс
             GameObject model = Instantiate(models[i].model, Vector3.zero, Quaternion.identity, modelObject.transform.GetChild(1).transform);
             model.transform.localPosition = new Vector3(0, 0, 0);
 
@@ -37,7 +38,7 @@ public class modelManager : MonoBehaviour
             for (int j = 0; j < model.transform.childCount; j++)
             {
                 model.transform.GetChild(j).gameObject.layer = 5;
-            }
+            }*/
         }
     }
 }

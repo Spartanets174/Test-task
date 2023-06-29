@@ -9,11 +9,13 @@ public class modelDisplay : MonoBehaviour
 {
     public modelObject modelObject;
     public Text modelName;
+    public Image modelImage;
     public allModelsObjects ModelsObject;
 
     private void Start()
     {
         modelName.text = modelObject.modelName;
+        modelImage.sprite = modelObject.modelImage;
     }
 
     //«апись в scriptable object выбранной пользователем модели

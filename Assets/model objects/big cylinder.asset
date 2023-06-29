@@ -17,6 +17,7 @@ MonoBehaviour:
   modelDescription: "\u041D\u0435\u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E
     \u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u0446\u0438\u043B\u0438\u043D\u0434\u0440
     \u044F \u0432 \u0448\u043E\u043A\u0435"
+  modelImage: {fileID: 21300000, guid: 459bff3e1a49ba945b49f9815d256fdd, type: 3}
   CurrentFeatureList:
   - rid: 4112037793371783170
   references:

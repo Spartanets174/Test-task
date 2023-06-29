@@ -13,6 +13,7 @@ public class modelObject : ScriptableObject
     //“екстовое описание и им€
     public string modelName;
     public string modelDescription;
+    public Sprite modelImage;
     //—писок всех способностей, которые можно выбрать дл€ модели
     [SerializeReference, SubclassSelector] public Ifeature[] CurrentFeatureList = Array.Empty<Ifeature>();
 };    
