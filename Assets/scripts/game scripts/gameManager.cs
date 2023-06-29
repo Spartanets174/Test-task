@@ -18,21 +18,32 @@ public class gameManager : MonoBehaviour
     public Dropdown featureDropdown;
     //Ссылка на объект, который хранит нужные способности на сцене
     public currentModelManager currentModelManager;
+    public int currentModelId;
 
     //Переменная, которая сохраняет объект для удаления при переключении на следующий/предыдущий
     GameObject publicSpawnedObject;
     //Переменная нормального состояния
-    normal normal;
 
     void Start()
     {
+        for (int i = 0; i < ModelsObject.listModelObject.Count; i++)
+        {
+            if (ModelsObject.listModelObject[i].modelName == ModelsObject.currentModelObject.modelName)
+            {
+                Debug.Log(i);
+                currentModelId = i;
+                break;
+            }
+        }
         //Запись нужных способностей
-        currentModelManager.ifeatures = ModelsObject.currentModelObject.CurrentFeatureList;
         spawnModel(ModelsObject.currentModelObject);
     }
     //Функция для создания модели и переопределения способностей у созданной модели
     public void spawnModel(modelObject obj)
     {
+        //Обнуление и перезаполнение способностей для новой модели
+        currentModelManager.ifeatures = null;
+        currentModelManager.ifeatures = obj.CurrentFeatureList;
         //Удаление предыдущей модели
         Destroy(publicSpawnedObject); 
         
@@ -47,11 +58,10 @@ public class gameManager : MonoBehaviour
         currentModelManager.model = spawnedObject;
 
         //Добавление нормального состояния
-        List<string> DropOptions = new List<string>();
-        normal = new normal();
-        DropOptions.Add(normal.Name);
+        List<string> DropOptions = new List<string> {"Обычное состояние"};
 
         featureDropdown.ClearOptions();
+        featureDropdown.onValueChanged.RemoveAllListeners();
         
         //Добавление способностей в дропдаун меню для выбора
         for (int i = 0; i < obj.CurrentFeatureList.Length; i++)
@@ -69,11 +79,13 @@ public class gameManager : MonoBehaviour
     //Функция, которая активирует выбранную способность в зависимости от номера выбранной опции в дропдаун меню
     void DropdownValueChanged(Dropdown dropdown, modelObject model)
     {
-        if (dropdown.value == 0)
-        {
-            normal.featureRealization(currentModelManager.model);
-        }
-        else
+
+        Destroy(currentModelManager.model);
+        GameObject spawnedObject = Instantiate(ModelsObject.currentModelObject.model, Vector3.zero, Quaternion.identity, modelParent);
+        spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
+        publicSpawnedObject = spawnedObject;
+        currentModelManager.model = spawnedObject;
+        if (dropdown.value != 0)
         {
             model.CurrentFeatureList[dropdown.value - 1]?.featureRealization(currentModelManager.model);
         }

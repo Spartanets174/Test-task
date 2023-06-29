@@ -7,51 +7,40 @@ using UnityEngine;
 public class modelSwitcher : MonoBehaviour
 {
     public gameManager manager;
-
-    int  currentModelId;
-    void Start()
-    {
-        //Сохранение id выбранной пользователем модели
-        for (int i = 0; i < manager.ModelsObject.listModelObject.Count; i++)
-        {
-            if (manager.ModelsObject.listModelObject[i].modelName== manager.ModelsObject.currentModelObject.modelName)
-            {
-                currentModelId = i;
-            }
-        }
-    }
-    
-    
     //Функция для переключения на следующую
     public void nextModel()
     {
-        currentModelId++;
-        currentModelId = makeValidId(currentModelId);
-        manager.spawnModel(manager.ModelsObject.listModelObject[currentModelId]);
+        manager.currentModelId++;
+        spawnObject(manager.currentModelId);       
     }
 
     //Функция для переключения на предыдущую
     public void prevModel()
     {
-        currentModelId--;
-        currentModelId=makeValidId(currentModelId);
-        manager.spawnModel(manager.ModelsObject.listModelObject[currentModelId]);
+        manager.currentModelId--;
+        spawnObject(manager.currentModelId);
     }
+    // Сохранение id выбранной пользователем модели
 
-    //Проверка переданного в функцию id на принадлежность к области массива моделей
-    private int makeValidId(int currentId)
+    //Проверка переданного в функцию id на принадлежность к области массива моделей и спавн нужной модели
+    private void spawnObject(int currentId)
     {
-        if (currentId >= manager.ModelsObject.listModelObject.Count)
+        Debug.Log(manager.currentModelId);
+        if (currentId > manager.ModelsObject.listModelObject.Count-1)
         {
-            currentId = 0;
-            return currentId;
+            currentId = 0;            
         }
         if (currentId<0)
         {
-            currentId = manager.ModelsObject.listModelObject.Count-1;
-            return currentId;
+            currentId = manager.ModelsObject.listModelObject.Count-1;            
         }
-        return currentId;
+        
+        
+        manager.spawnModel(manager.ModelsObject.listModelObject[currentId]);
+        manager.ModelsObject.currentModelObject = manager.ModelsObject.listModelObject[currentId];
+        manager.currentModelId = currentId;
+
+        Debug.Log(manager.currentModelId);
     }
 
 }
