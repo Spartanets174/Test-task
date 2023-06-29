@@ -17,7 +17,10 @@ MonoBehaviour:
   modelDescription: "\u041F\u0440\u043E\u0441\u0442\u043E \u043A\u0443\u0431 \u044F
     \u0432 \u0448\u043E\u043A\u0435"
   modelImage: {fileID: 21300000, guid: d22a6c177068ca84e9e5cd6bebe20cf3, type: 3}
-  CurrentFeatureList: []
+  CurrentFeatureList:
+  - rid: 4112037812768604163
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4112037812768604163
+      type: {class: colorChange, ns: , asm: Assembly-CSharp}

@@ -17,13 +17,3 @@ MonoBehaviour:
   modelDescription: "\u041D\u0435\u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E
     \u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u043A\u0443\u0431 \u044F \u0432 \u0448\u043E\u043A\u0435"
   modelImage: {fileID: 21300000, guid: d22a6c177068ca84e9e5cd6bebe20cf3, type: 3}
-  CurrentFeatureList:
-  - rid: 4112037788656336902
-  - rid: 4112037793371783169
-  references:
-    version: 2
-    RefIds:
-    - rid: 4112037788656336902
-      type: {class: decomposeFeature, ns: , asm: Assembly-CSharp}
-    - rid: 4112037793371783169
-      type: {class: cutFeature, ns: , asm: Assembly-CSharp}

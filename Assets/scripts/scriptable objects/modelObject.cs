@@ -14,7 +14,6 @@ public class modelObject : ScriptableObject
     public string modelName;
     public string modelDescription;
     public Sprite modelImage;
-    //Список всех способностей, которые можно выбрать для модели
-    [SerializeReference, SubclassSelector] public Ifeature[] CurrentFeatureList = Array.Empty<Ifeature>();
+    
 };    
 

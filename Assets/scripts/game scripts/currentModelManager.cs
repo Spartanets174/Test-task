@@ -8,5 +8,6 @@ using UnityEngine;
 public class currentModelManager : MonoBehaviour
 {
    public GameObject model;
-   public Ifeature[] ifeatures = Array.Empty<Ifeature>();
+    //Список всех способностей, которые можно выбрать для модели
+    [SerializeReference, SubclassSelector] public Ifeature[] CurrentFeatureList = Array.Empty<Ifeature>();
 }

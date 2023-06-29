@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7658835973872261057}
   - component: {fileID: 4806023629079778369}
   - component: {fileID: 7644963710608337155}
+  - component: {fileID: 3898465878775087908}
   m_Layer: 5
   m_Name: Cube
   m_TagString: Untagged
@@ -116,3 +117,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &3898465878775087908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604614678443702458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a15cba435706c49b37fa3c4c02e9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 1604614678443702458}
+  CurrentFeatureList:
+  - rid: 4112037814946758660
+  references:
+    version: 2
+    RefIds:
+    - rid: 4112037814946758660
+      type: {class: colorChange, ns: , asm: Assembly-CSharp}

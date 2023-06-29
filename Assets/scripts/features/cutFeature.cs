@@ -11,16 +11,14 @@ public class cutFeature : Ifeature
     string Name = "Разрез";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
+    public List<GameObject> partsToCut;
 
     public void featureRealization(GameObject model)
     {
         //Каждая нечетная часть модели просто отключается
-        for (int i = 0; i < model.transform.childCount; i++)
+        for (int i = 0; i < partsToCut.Count; i++)
         {
-            if (i%2==1)
-            {
-                model.transform.GetChild(i).gameObject.SetActive(false);
-            }
+            partsToCut[i].gameObject.SetActive(false); 
         }
         Debug.Log("Разрез");;
     }
