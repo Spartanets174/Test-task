@@ -16,8 +16,11 @@ public class colorChange : Ifeature
         //Все части перекрашиваются
         for (int i = 0; i < model.transform.childCount; i++)
         {
-            model.transform.GetChild(i).GetComponent<MeshRenderer>().materials[0].color = new Color(UnityEngine.Random.Range(0, 255) / 100, UnityEngine.Random.Range(0, 255) / 100, UnityEngine.Random.Range(0, 255) / 100, 1);
+            if (model.transform.GetChild(i).TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
+            {
+                mesh.materials[0].color = new Color(UnityEngine.Random.Range(0, 255) / 100, UnityEngine.Random.Range(0, 255) / 100, UnityEngine.Random.Range(0, 255) / 100, 1);
+            }
         }
-        Debug.Log("Смена цвета"); ;
+        Debug.Log("Смена цвета");
     }
 }
