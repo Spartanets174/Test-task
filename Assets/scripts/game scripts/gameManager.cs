@@ -34,6 +34,7 @@ public class gameManager : MonoBehaviour
         spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
         changeableObject = spawnedObject;
 
+        //Добавление функции в Dropdown по клику на элемент
         UiManager.featureDropdown.onValueChanged.AddListener(delegate {
             DropdownActivateFeature(UiManager.featureDropdown, changeableObject);
         });
