@@ -18,5 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2de199c25b6b500489e8ef8dbc6bda14, type: 2}
   - {fileID: 11400000, guid: f97a335fa5ab2804797b80b4eaf14527, type: 2}
   - {fileID: 11400000, guid: 16a2be4ce41a8d546b9230d4d27565ad, type: 2}
-  - {fileID: 11400000, guid: ce6ac669b118a3848b635d8e64210810, type: 2}
   currentModelObject: {fileID: 11400000, guid: 31c4d402042144440afde983693819eb, type: 2}

@@ -7,26 +7,31 @@ using UnityEngine.UI;
 [Serializable]
 //Способность декомпозиции объектов
 public class decomposeFeature : Ifeature
-{   //Указание имени самой способности
+{
+    //Указание имени самой способности
     string Name = "Декомпозиция";
-    public int maxDistance;
-    [SerializeField] Slider decomposeSlider;
+    
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
-
+    [SerializeField] int maxDistance;
+    [SerializeField] Slider decomposeSlider;
     List<Vector3> startPos = new List<Vector3>();
     
 
     public void featureRealization(GameObject model)
     { 
+        //Настройка слайдера
         decomposeSlider.gameObject.SetActive(true);
         decomposeSlider.transform.localPosition = new Vector3(0, 140, 0);
         decomposeSlider.maxValue = maxDistance;
         decomposeSlider.minValue = 1;
+
+        //Добавление стартовых позиций дочерних объектов
         for (int i = 0; i < model.transform.childCount; i++)
         {
             startPos.Add(model.transform.GetChild(i).transform.localPosition);
         }
+        //Добавление функции при изменении значения слайдера
         decomposeSlider.onValueChanged.AddListener(delegate
         {
             changePos(model, decomposeSlider.value);
@@ -35,6 +40,7 @@ public class decomposeFeature : Ifeature
         Debug.Log("Декомпозиция");
     }
 
+    //Меняет положение всех дочерних объектов относительно их начального положеиня
     void changePos(GameObject model, float value)
     {
         for (int i = 0; i < model.transform.childCount; i++)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using UnityEngine;
 
-//Скрипт для отображения способностей выбранной модели во время работы программы
+//Скрипт для выбора настройки нужных способностей модели
 public class currentModelManager : MonoBehaviour
 {
    public GameObject model;

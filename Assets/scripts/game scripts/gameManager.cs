@@ -8,7 +8,6 @@ using UnityEngine.UI;
 //Основной скрипт во время просмотра модели
 public class gameManager : MonoBehaviour
 {
-
     public UIManager UiManager;
 
     public Transform modelParent;

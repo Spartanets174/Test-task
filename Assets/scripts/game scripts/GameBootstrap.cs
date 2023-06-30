@@ -12,8 +12,7 @@ public class GameBootstrap : MonoBehaviour
 
     //Устанавливает нужные перменные в gameManager в определённые значения от действий пользователя
     void Awake()
-    {
-       
+    { 
         gameManager.allModelsObject = ModelsObject.listModelObject;
         gameManager.currentModelObject = ModelsObject.currentModelObject;
         for (int i = 0; i < ModelsObject.listModelObject.Count; i++)

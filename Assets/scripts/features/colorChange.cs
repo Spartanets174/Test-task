@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class colorChange : Ifeature
 {
-     public CUIColorPicker ColorPicker;
+    [SerializeField] CUIColorPicker ColorPicker;
     //Указание имени самой способности
     string Name = "Смена цвета";
     //Передача имени в интерфейс

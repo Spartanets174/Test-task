@@ -11,7 +11,8 @@ public class cutFeature : Ifeature
     string Name = "Разрез";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
-    public List<GameObject> partsToCut;
+
+    [SerializeField] List<GameObject> partsToCut;
 
     public void featureRealization(GameObject model)
     {

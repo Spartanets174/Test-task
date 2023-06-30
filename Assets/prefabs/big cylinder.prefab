@@ -672,7 +672,7 @@ MonoBehaviour:
     - rid: 4112037814946758659
       type: {class: decomposeFeature, ns: , asm: Assembly-CSharp}
       data:
-        maxDistance: 3
+        maxDistance: 10
         decomposeSlider: {fileID: 3402155688990876246}
 --- !u!1 &3272669933240571544
 GameObject:
