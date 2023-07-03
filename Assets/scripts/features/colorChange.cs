@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 [Serializable]
 public class colorChange : Ifeature
 {
-    [SerializeField] CUIColorPicker ColorPicker;
+    public CUIColorPicker ColorPicker;
+    public Color colorToChange;
     //Указание имени самой способности
     string Name = "Смена цвета";
     //Передача имени в интерфейс
@@ -16,7 +16,18 @@ public class colorChange : Ifeature
     public void featureRealization(GameObject model)
     {
         ColorPicker.gameObject.SetActive(true);
-        ColorPicker.model = model;        
+        ChangeColor(model, colorToChange);
         Debug.Log("Смена цвета");
+    }
+    public void ChangeColor(GameObject model, Color color)
+    {
+        //Все части перекрашиваются
+        for (int i = 0; i < model.transform.childCount; i++)
+        {
+            if (model.transform.GetChild(i).TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
+            {
+                mesh.materials[0].color = color;
+            }
+        }
     }
 }

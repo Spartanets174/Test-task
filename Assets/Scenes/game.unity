@@ -1530,7 +1530,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameModel: {fileID: 1813943075}
   description: {fileID: 1076165790}
+  next: {fileID: 1689927790}
+  prev: {fileID: 1792427439}
   featureDropdown: {fileID: 820430108}
+  modelSwitcher: {fileID: 1107444544}
+  gameManager: {fileID: 1956645096}
 --- !u!4 &920617072
 Transform:
   m_ObjectHideFlags: 0
@@ -2007,7 +2011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c1a7bc37aa03346a8b4e951532243f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModelsObject: {fileID: 11400000, guid: 40ce28fcbf4ef704b855cdf63094cfae, type: 2}
+  ModelsObject: {fileID: 11400000, guid: f91acd5d2ecde4b4188d93d13867fc42, type: 2}
   gameManager: {fileID: 1956645096}
 --- !u!4 &1199247154
 Transform:

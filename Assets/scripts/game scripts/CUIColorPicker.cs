@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class CUIColorPicker : MonoBehaviour
 {
     public Color Color { get { return _color; } set { Setup( value ); } }
-    public GameObject model;
     public void SetOnValueChangeCallback( Action<Color> onValueChange )
     {
         _onValueChange = onValueChange;
@@ -158,17 +157,7 @@ public class CUIColorPicker : MonoBehaviour
         _update = idle;
     }
 
-    public void ChangeColor()
-    {
-        //Все части перекрашиваются
-        for (int i = 0; i < model.transform.childCount; i++)
-        {
-            if (model.transform.GetChild(i).TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
-            {
-                mesh.materials[0].color = transform.GetChild(0).GetComponent<Image>().color;
-            }
-        }
-    }
+   
 
     public void SetRandomColor()
     {

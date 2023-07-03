@@ -31,18 +31,12 @@ public class gameManager : MonoBehaviour
         Destroy(changeableObject);
         GameObject spawnedObject = Instantiate(currentModelObject.model, Vector3.zero, Quaternion.identity, modelParent);
         spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
-        changeableObject = spawnedObject;
-
-        //Добавление функции в Dropdown по клику на элемент
-        UiManager.featureDropdown.onValueChanged.AddListener(delegate {
-            DropdownActivateFeature(UiManager.featureDropdown, changeableObject);
-        });
+        changeableObject = spawnedObject;       
     }
-
     //Функция, которая активирует выбранную способность в зависимости от номера выбранной опции в дропдаун меню
-    void DropdownActivateFeature(Dropdown dropdown, GameObject model)
+    public void DropdownActivateFeature(Dropdown dropdown)
     {
-        Destroy(model);
+        Destroy(changeableObject);
         GameObject spawnedObject = Instantiate(currentModelObject.model, Vector3.zero, Quaternion.identity, modelParent);
         spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
         changeableObject = spawnedObject;
@@ -51,5 +45,6 @@ public class gameManager : MonoBehaviour
             spawnedObject.GetComponent<currentModelManager>().CurrentFeatureList[dropdown.value - 1]?.featureRealization(spawnedObject);
         }
     }
+
 }
 

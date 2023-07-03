@@ -7,8 +7,6 @@ using UnityEngine.UI;
 //Скрипт для переключения между моделями
 public class modelSwitcher : MonoBehaviour
 {
-    //Кнопки переключения объекта
-
     public gameManager manager;
     //Функция для переключения на следующую
     public void nextModel()
