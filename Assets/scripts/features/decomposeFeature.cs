@@ -16,6 +16,7 @@ public class decomposeFeature : Ifeature
     string Name = "Декомпозиция";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
+    public PresentorType presentorType => PresentorType.valueChange;
     public void featureRealization(GameObject model)
     { 
        /* //Добавление стартовых позиций дочерних объектов

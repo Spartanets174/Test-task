@@ -1,3 +1,4 @@
+using RotaryHeart.Lib.SerializableDictionary;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,4 +10,5 @@ public class currentModelManager : MonoBehaviour
 {
     //Список всех способностей, которые можно выбрать для модели
     [SerializeReference, SubclassSelector] public Ifeature[] CurrentFeatureList = Array.Empty<Ifeature>();
+
 }

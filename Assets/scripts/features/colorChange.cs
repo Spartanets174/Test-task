@@ -12,7 +12,9 @@ public class colorChange : Ifeature
     string Name = "Смена цвета";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
-    
+
+    public PresentorType presentorType => PresentorType.changeProperty;
+
     public void featureRealization(GameObject model)
     {
         ColorPicker.gameObject.SetActive(true);

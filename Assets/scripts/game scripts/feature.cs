@@ -6,6 +6,7 @@ using UnityEngine;
 public interface Ifeature
 {
     string Name { get; }
+    public PresentorType presentorType { get; }
     //Функция, которая принимает аргументом саму модель, которую надо будет изменять
     public void featureRealization(GameObject model);
 }

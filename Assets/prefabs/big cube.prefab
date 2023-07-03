@@ -167,7 +167,7 @@ MonoBehaviour:
       type: {class: decomposeFeature, ns: , asm: Assembly-CSharp}
       data:
         maxDistance: 5
-        currentValue: 0
+        currentValue: 1
         startPos:
         - {fileID: 4933378455697622689}
         - {fileID: 998461019518782938}

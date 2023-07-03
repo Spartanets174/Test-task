@@ -31,14 +31,13 @@ public class UIManager : MonoBehaviour
     {
         nameModel.text = currentModelObject.modelName;
         description.text = currentModelObject.modelDescription;
+        currentModelManager currentModel = currentModelObject.model.GetComponent<currentModelManager>();
 
         //Добавление нормального состояния
         List<string> DropOptions = new List<string> { "Обычное состояние" };
 
         featureDropdown.ClearOptions();
         featureDropdown.onValueChanged.RemoveAllListeners();
-
-        currentModelManager currentModel = currentModelObject.model.GetComponent<currentModelManager>();
 
         //Добавление способностей в дропдаун меню для выбора
         for (int i = 0; i < currentModel.CurrentFeatureList.Length; i++)

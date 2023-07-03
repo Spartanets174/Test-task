@@ -3043,10 +3043,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiManager: {fileID: 920617071}
+  CurrentFeaturePresentorList: []
+  List:
+  - rid: -2
   modelParent: {fileID: 1339184097}
   allModelsObject: []
   currentModelObject: {fileID: 0}
   currentModelId: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &1991990425
 GameObject:
   m_ObjectHideFlags: 0

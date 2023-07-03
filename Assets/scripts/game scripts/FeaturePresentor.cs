@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class FeaturePresentor : MonoBehaviour
+[Serializable]
+public abstract class FeaturePresentor
 {
-    protected gameManager _gameManager;
+ /*   protected gameManager _gameManager;
+    public PresentorType presentorType;
+    public FeaturePresentor(PresentorType presentorType)
+    {
+        this.presentorType = presentorType;
+    }*/
 
-    public void Init(gameManager gameManager)
+
+  /*  public void Init(gameManager gameManager)
     {
         _gameManager = gameManager;
-    }
+    }*/
 
-    public abstract void currentFeatureUIPresent();
+    public abstract void currentFeatureUIPresent(Ifeature feature);
 }
