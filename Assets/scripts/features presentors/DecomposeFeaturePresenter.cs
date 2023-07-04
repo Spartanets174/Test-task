@@ -11,7 +11,7 @@ public class DecomposeFeaturePresenter : FeaturePresentor
         GameObject sliderParent = Instantiate(_uiPrefab, Vector3.zero,Quaternion.identity,model.transform);
         sliderParent.transform.GetChild(0).TryGetComponent<Slider>(out Slider slider);
         slider.transform.localPosition = new Vector3(0, 140, 0);
-        slider.minValue = 1;
+        slider.minValue = decFeature.minDistance;
         slider.maxValue = decFeature.maxDistance;
         for (int i = 0; i < _gameManager.currentModelObject.model.transform.childCount; i++)
         {

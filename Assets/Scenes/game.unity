@@ -3045,6 +3045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiManager: {fileID: 920617071}
+  textPref: {fileID: 1606497028734027169, guid: ab828a103e6b7e74d9e5f363360728ab, type: 3}
   modelParent: {fileID: 1339184097}
   currentModelObject: {fileID: 0}
   currentModelId: 0

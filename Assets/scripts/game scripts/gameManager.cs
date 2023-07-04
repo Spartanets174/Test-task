@@ -35,23 +35,25 @@ public class gameManager : MonoBehaviour
     //Функция, которая активирует выбранную способность в зависимости от номера выбранной опции в дропдаун меню
     public void DropdownActivateFeature(Dropdown dropdown)
     {
+        
         spawnModel();
         if (dropdown.value != 0)
         {
             Ifeature[] featureList = changeableObject.GetComponent<currentModelManager>().CurrentFeatureList;
-            switch (featureList[dropdown.value - 1].Name)
+            switch (featureList[dropdown.value - 1].GetType().Name)
             {
-                case "Разрез":
+                
+                case nameof(cutFeature):
                     CutFeaturePresenter cutPresent = changeableObject.AddComponent(typeof(CutFeaturePresenter)) as CutFeaturePresenter;
-                    fillFeatureData(cutPresent, null, dropdown.value - 1);
+                    fillFeaturePresenterData(cutPresent, null, dropdown.value - 1);
                     break;
-                case "Декомпозиция":
+                case nameof(decomposeFeature):
                     DecomposeFeaturePresenter decomposePresent = changeableObject.AddComponent(typeof(DecomposeFeaturePresenter)) as DecomposeFeaturePresenter;
-                    fillFeatureData(decomposePresent, DecomposeSlider, dropdown.value - 1);
+                    fillFeaturePresenterData(decomposePresent, DecomposeSlider, dropdown.value - 1);
                     break;
-                case "Смена цвета":
+                case nameof(colorChange):
                     ColorFeaturePresentor colorPresent = changeableObject.AddComponent(typeof(ColorFeaturePresentor)) as ColorFeaturePresentor;
-                    fillFeatureData(colorPresent, changeColorUI, dropdown.value - 1);
+                    fillFeaturePresenterData(colorPresent, changeColorUI, dropdown.value - 1);
                     break;
             }
         }
@@ -65,8 +67,9 @@ public class gameManager : MonoBehaviour
         spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
         changeableObject = spawnedObject;
     }
+
     //Заполнения нужными данными презентор
-    void fillFeatureData(FeaturePresentor featurePresentor,GameObject UI, int dropdownValue )
+    void fillFeaturePresenterData(FeaturePresentor featurePresentor,GameObject UI, int dropdownValue)
     {
         featurePresentor.Init(this, UI);
         featurePresentor.currentFeatureUIPresent(changeableObject.GetComponent<currentModelManager>(), dropdownValue);

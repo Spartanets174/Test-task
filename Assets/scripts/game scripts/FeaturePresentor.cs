@@ -13,6 +13,5 @@ public abstract class FeaturePresentor:MonoBehaviour
         _gameManager = gameManager;
         _uiPrefab= uiPrefab;
     }
-
     public abstract void currentFeatureUIPresent(currentModelManager model, int featureId);
 }

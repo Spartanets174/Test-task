@@ -344,9 +344,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentFeatureList:
   - rid: 4112037814946758662
+  - rid: 3892040364725633025
   references:
     version: 2
     RefIds:
+    - rid: 3892040364725633025
+      type: {class: colorChange, ns: , asm: Assembly-CSharp}
+      data:
+        colorToChange: {r: 0, g: 0, b: 0, a: 0}
     - rid: 4112037814946758662
       type: {class: decomposeFeature, ns: , asm: Assembly-CSharp}
       data:

@@ -9,13 +9,12 @@ using UnityEngine.UI;
 public class decomposeFeature : Ifeature
 {
     public int maxDistance;
+    public int minDistance=1;
     public float currentValue;
     public List<Vector3> startPos;
     [SerializeField] List<GameObject> partsToDecompose;
     //Указание имени самой способности
     string Name = "Декомпозиция";
-
-    public gameManager gameManager => throw new NotImplementedException();
 
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
@@ -33,7 +32,15 @@ public class decomposeFeature : Ifeature
     }     
     float objectMove(float coord, float value)
     {
-        return (Math.Abs(coord * value) > Math.Abs(coord * maxDistance)) ? coord: coord*value;
+        if (Math.Abs(coord * value) > Math.Abs(coord * maxDistance))
+        {
+            return coord * maxDistance;
+        }
+        if (Math.Abs(coord * value) < Math.Abs(coord * minDistance))
+        {
+            return coord * minDistance;
+        }
+        return coord*value;
     }
 
 }
