@@ -12,8 +12,6 @@ public class cutFeature : Ifeature
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
 
-    public PresentorType presentorType => PresentorType.turnOnOff;
-
     [SerializeField] List<GameObject> partsToCut;
 
     public void featureRealization(GameObject model)

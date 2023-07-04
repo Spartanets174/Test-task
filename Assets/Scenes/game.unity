@@ -2012,6 +2012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModelsObject: {fileID: 11400000, guid: f91acd5d2ecde4b4188d93d13867fc42, type: 2}
+  changeColorUI: {fileID: 4501716803147846894, guid: a2c8d80c9ab10c94cacb020628548cc5, type: 3}
+  DecomposeSlider: {fileID: 4113531006575377191, guid: 1f9c634c323b6b041aaae55be97926df, type: 3}
   gameManager: {fileID: 1956645096}
 --- !u!4 &1199247154
 Transform:
@@ -3043,18 +3045,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiManager: {fileID: 920617071}
-  CurrentFeaturePresentorList: []
-  List:
-  - rid: -2
   modelParent: {fileID: 1339184097}
-  allModelsObject: []
   currentModelObject: {fileID: 0}
   currentModelId: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  DecomposeSlider: {fileID: 0}
+  changeColorUI: {fileID: 0}
+  allModelsObject: []
 --- !u!1 &1991990425
 GameObject:
   m_ObjectHideFlags: 0

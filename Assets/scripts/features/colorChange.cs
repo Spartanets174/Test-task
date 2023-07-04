@@ -6,18 +6,14 @@ using UnityEngine;
 [Serializable]
 public class colorChange : Ifeature
 {
-    public CUIColorPicker ColorPicker;
     public Color colorToChange;
     //Указание имени самой способности
     string Name = "Смена цвета";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
 
-    public PresentorType presentorType => PresentorType.changeProperty;
-
     public void featureRealization(GameObject model)
     {
-        ColorPicker.gameObject.SetActive(true);
         ChangeColor(model, colorToChange);
         Debug.Log("Смена цвета");
     }

@@ -9,34 +9,31 @@ using UnityEngine.UI;
 public class decomposeFeature : Ifeature
 {
     public int maxDistance;
-    public int currentValue;
-    public List<Transform> startPos;
+    public float currentValue;
+    public List<Vector3> startPos;
     [SerializeField] List<GameObject> partsToDecompose;
     //Указание имени самой способности
     string Name = "Декомпозиция";
+
+    public gameManager gameManager => throw new NotImplementedException();
+
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
-    public PresentorType presentorType => PresentorType.valueChange;
     public void featureRealization(GameObject model)
     { 
-       /* //Добавление стартовых позиций дочерних объектов
-        for (int i = 0; i < partsToDecompose.Count; i++)
-        {
-            startPos.Add(partsToDecompose[i].transform.localPosition);
-        }*/
         for (int i = 0; i < partsToDecompose.Count; i++)
         {
             Vector3 childPos = partsToDecompose[i].transform.localPosition;
-            childPos.x = objectMove(startPos[i].position.x, currentValue);
-            childPos.y = objectMove(startPos[i].position.y, currentValue);
-            childPos.z = objectMove(startPos[i].position.z, currentValue);
+            childPos.x = objectMove(startPos[i].x, currentValue);
+            childPos.y = objectMove(startPos[i].y, currentValue);
+            childPos.z = objectMove(startPos[i].z, currentValue);
             partsToDecompose[i].transform.localPosition = childPos;
         }
         Debug.Log("Декомпозиция");
     }     
     float objectMove(float coord, float value)
     {
-        return coord * value>coord*maxDistance? coord : coord*value;
+        return (Math.Abs(coord * value) > Math.Abs(coord * maxDistance)) ? coord: coord*value;
     }
 
 }

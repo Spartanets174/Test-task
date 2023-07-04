@@ -4,20 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public abstract class FeaturePresentor
+public abstract class FeaturePresentor:MonoBehaviour
 {
- /*   protected gameManager _gameManager;
-    public PresentorType presentorType;
-    public FeaturePresentor(PresentorType presentorType)
-    {
-        this.presentorType = presentorType;
-    }*/
-
-
-  /*  public void Init(gameManager gameManager)
+    protected gameManager _gameManager;
+    public GameObject _uiPrefab;
+    public void Init(gameManager gameManager, GameObject uiPrefab)
     {
         _gameManager = gameManager;
-    }*/
+        _uiPrefab= uiPrefab;
+    }
 
-    public abstract void currentFeatureUIPresent(Ifeature feature);
+    public abstract void currentFeatureUIPresent(currentModelManager model, int featureId);
 }

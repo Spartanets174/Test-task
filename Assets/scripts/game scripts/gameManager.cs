@@ -2,10 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 
 
 //Основной скрипт во время просмотра модели
@@ -13,65 +11,66 @@ public class gameManager : MonoBehaviour
 {
     public UIManager UiManager;
 
-    public Dictionary<Ifeature, FeaturePresentor> Presentors = new Dictionary<Ifeature, FeaturePresentor>();
-    [SerializeReference, SubclassSelector] FeaturePresentor[] CurrentFeaturePresentorList = Array.Empty<FeaturePresentor>();
-    [SerializeReference, SubclassSelector] Ifeature[] List = Array.Empty<Ifeature>();
     public Transform modelParent;
-
-    public  List<modelObject> allModelsObject;
-
     public  modelObject currentModelObject;
     public int currentModelId;
+
+    public GameObject DecomposeSlider;
+    public GameObject changeColorUI;
+
+    public List<modelObject> allModelsObject;
 
     GameObject changeableObject;
     
     private void Start()
     {
-       
-
-         List<FeaturePresentor> list =  GetAll().ToList();
-        Debug.Log(list[0]);
-
-        /*  Presentors.Add(List[0],CurrentFeaturePresentorList[0]);*/
-        spawnModel();
-    }
-    IEnumerable<FeaturePresentor> GetAll()
-    {
-        return AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(assembly => assembly.GetTypes())
-            .Where(type => type.IsSubclassOf(typeof(FeaturePresentor)))
-            .Select(type => Activator.CreateInstance(type) as FeaturePresentor);
-    }
-    //Функция для создания модели и переопределения способностей у созданной модели
-    public void spawnModel()
+        newModel();    
+    }    
+    //Функция для создания модели и вызова функции смены интерфейса
+    public void newModel()
     {
         UiManager.changeUI(currentModelObject);
-        Destroy(changeableObject);
-        GameObject spawnedObject = Instantiate(currentModelObject.model, Vector3.zero, Quaternion.identity, modelParent);
-        spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
-        changeableObject = spawnedObject;       
+        spawnModel();     
     }
     //Функция, которая активирует выбранную способность в зависимости от номера выбранной опции в дропдаун меню
     public void DropdownActivateFeature(Dropdown dropdown)
+    {
+        spawnModel();
+        if (dropdown.value != 0)
+        {
+            Ifeature[] featureList = changeableObject.GetComponent<currentModelManager>().CurrentFeatureList;
+            switch (featureList[dropdown.value - 1].Name)
+            {
+                case "Разрез":
+                    CutFeaturePresenter cutPresent = changeableObject.AddComponent(typeof(CutFeaturePresenter)) as CutFeaturePresenter;
+                    fillFeatureData(cutPresent, null, dropdown.value - 1);
+                    break;
+                case "Декомпозиция":
+                    DecomposeFeaturePresenter decomposePresent = changeableObject.AddComponent(typeof(DecomposeFeaturePresenter)) as DecomposeFeaturePresenter;
+                    fillFeatureData(decomposePresent, DecomposeSlider, dropdown.value - 1);
+                    break;
+                case "Смена цвета":
+                    ColorFeaturePresentor colorPresent = changeableObject.AddComponent(typeof(ColorFeaturePresentor)) as ColorFeaturePresentor;
+                    fillFeatureData(colorPresent, changeColorUI, dropdown.value - 1);
+                    break;
+            }
+        }
+    }
+
+    //Функция для создания модели
+    void spawnModel()
     {
         Destroy(changeableObject);
         GameObject spawnedObject = Instantiate(currentModelObject.model, Vector3.zero, Quaternion.identity, modelParent);
         spawnedObject.transform.localPosition = new Vector3(0, 0, 0);
         changeableObject = spawnedObject;
-        if (dropdown.value != 0)
-        {
-            spawnedObject.GetComponent<currentModelManager>().CurrentFeatureList[dropdown.value - 1]?.featureRealization(spawnedObject); 
-        }
     }
+    //Заполнения нужными данными презентор
+    void fillFeatureData(FeaturePresentor featurePresentor,GameObject UI, int dropdownValue )
+    {
+        featurePresentor.Init(this, UI);
+        featurePresentor.currentFeatureUIPresent(changeableObject.GetComponent<currentModelManager>(), dropdownValue);
+    }
+    
 
-}
-
-/*[Serializable]
-public class MyDictioanary : SerializableDictionaryBase<PresentorType, > { }
-*/
-public enum PresentorType
-{
-    turnOnOff,
-    valueChange,
-    changeProperty
 }

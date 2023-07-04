@@ -36,7 +36,7 @@ public class modelSwitcher : MonoBehaviour
 
         manager.currentModelObject = manager.allModelsObject[currentId];
         manager.currentModelId = currentId;
-        manager.spawnModel();
+        manager.newModel();
 
     }
 

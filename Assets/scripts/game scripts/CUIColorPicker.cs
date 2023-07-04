@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CUIColorPicker : MonoBehaviour
 {
     public Color Color { get { return _color; } set { Setup( value ); } }
+    public Button applyColor;
     public void SetOnValueChangeCallback( Action<Color> onValueChange )
     {
         _onValueChange = onValueChange;
@@ -157,7 +158,6 @@ public class CUIColorPicker : MonoBehaviour
         _update = idle;
     }
 
-   
 
     public void SetRandomColor()
     {

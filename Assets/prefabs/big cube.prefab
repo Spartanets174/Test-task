@@ -168,15 +168,7 @@ MonoBehaviour:
       data:
         maxDistance: 5
         currentValue: 1
-        startPos:
-        - {fileID: 4933378455697622689}
-        - {fileID: 998461019518782938}
-        - {fileID: 3211421361553723003}
-        - {fileID: 1542975298381443854}
-        - {fileID: 5416740602212403563}
-        - {fileID: 5055137647282758126}
-        - {fileID: 8139654614722487666}
-        - {fileID: 230678988774329392}
+        startPos: []
         partsToDecompose:
         - {fileID: 5064392989235664682}
         - {fileID: 2484884336284614894}
