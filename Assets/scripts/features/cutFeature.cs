@@ -8,13 +8,13 @@ using UnityEngine;
 public class cutFeature : Ifeature
 {
     //Указание имени самой способности
-    string Name = "Разрез";
+    readonly string Name = "Разрез";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
 
     [SerializeField] List<GameObject> partsToCut;
 
-    public void featureRealization(GameObject model)
+    public void FeatureRealization(GameObject model)
     {
         //Каждая нечетная часть модели просто отключается
         for (int i = 0; i < partsToCut.Count; i++)

@@ -10,8 +10,8 @@ public class UIManager : MonoBehaviour
     public Text description;
     public Button next;
     public Button prev;
-
     public Dropdown featureDropdown;
+
     public modelSwitcher modelSwitcher;
     public gameManager gameManager;
 
@@ -19,15 +19,15 @@ public class UIManager : MonoBehaviour
     {
         next.onClick.AddListener(() =>
         {
-            modelSwitcher.nextModel();
+            modelSwitcher.NextModel();
         });
         prev.onClick.AddListener(() =>
         {
-            modelSwitcher.prevModel();
+            modelSwitcher.PrevModel();
         });
     }
 
-    public void changeUI(modelObject currentModelObject)
+    public void ChangeUI(modelObject currentModelObject)
     {
         nameModel.text = currentModelObject.modelName;
         description.text = currentModelObject.modelDescription;

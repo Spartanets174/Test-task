@@ -14,11 +14,11 @@ public class decomposeFeature : Ifeature
     public List<Vector3> startPos;
     [SerializeField] List<GameObject> partsToDecompose;
     //Указание имени самой способности
-    string Name = "Декомпозиция";
+    readonly string Name = "Декомпозиция";
 
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
-    public void featureRealization(GameObject model)
+    public void FeatureRealization(GameObject model)
     { 
         for (int i = 0; i < partsToDecompose.Count; i++)
         {

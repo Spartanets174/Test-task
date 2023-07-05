@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+//Абстракция для презенторов способностей
 public abstract class FeaturePresentor:MonoBehaviour
 {
     protected gameManager _gameManager;
@@ -12,5 +12,5 @@ public abstract class FeaturePresentor:MonoBehaviour
     {
         _gameManager = gameManager;
     }
-    public abstract void currentFeatureUIPresent(currentModelManager model, int featureId);
+    public abstract void CurrentFeatureUIPresent(currentModelManager model, int featureId);
 }

@@ -8,15 +8,15 @@ using UnityEngine.UI;
 public class modelSwitcher : MonoBehaviour
 {
     public gameManager manager;
-    //Функция для переключения на следующую
-    public void nextModel()
+    //Функция для переключения на следующую модель
+    public void NextModel()
     {
         manager.currentModelId++;
         changeCurrentModel(manager.currentModelId);
     }
 
-    //Функция для переключения на предыдущую
-    public void prevModel()
+    //Функция для переключения на предыдущую модель
+    public void PrevModel()
     {
         manager.currentModelId--;
         changeCurrentModel(manager.currentModelId);
@@ -36,7 +36,7 @@ public class modelSwitcher : MonoBehaviour
 
         manager.currentModelObject = manager.allModelsObject[currentId];
         manager.currentModelId = currentId;
-        manager.newModel();
+        manager.NewModel();
 
     }
 

@@ -8,11 +8,11 @@ public class colorChange : Ifeature
 {
     public Color colorToChange;
     //Указание имени самой способности
-    string Name = "Смена цвета";
+    readonly string Name = "Смена цвета";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
 
-    public void featureRealization(GameObject model)
+    public void FeatureRealization(GameObject model)
     {
         ChangeColor(model, colorToChange);
         Debug.Log("Смена цвета");

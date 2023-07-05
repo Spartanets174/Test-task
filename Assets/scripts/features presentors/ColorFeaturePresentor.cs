@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorFeaturePresentor : FeaturePresentor
 {
-    public override void currentFeatureUIPresent(currentModelManager model, int featureId)
+    public override void CurrentFeatureUIPresent(currentModelManager model, int featureId)
     {
         colorChange colorFeature = (colorChange)model.CurrentFeatureList[featureId];
         _uiPrefab = _gameManager.changeColorUI;
@@ -13,7 +13,7 @@ public class ColorFeaturePresentor : FeaturePresentor
         ColorPicker.applyColor.onClick.AddListener(() => 
         {
             colorFeature.colorToChange = ColorPicker.Color; 
-            colorFeature.featureRealization(model.gameObject);
+            colorFeature.FeatureRealization(model.gameObject);
         });
  
     }

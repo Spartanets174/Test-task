@@ -2648,19 +2648,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1689927791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1107444544}
-        m_TargetAssemblyTypeName: modelSwitcher, Assembly-CSharp
-        m_MethodName: nextModel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1689927791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,19 +2769,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1792427440}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1107444544}
-        m_TargetAssemblyTypeName: modelSwitcher, Assembly-CSharp
-        m_MethodName: prevModel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1792427440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3045,13 +3021,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiManager: {fileID: 920617071}
-  textPref: {fileID: 1606497028734027169, guid: ab828a103e6b7e74d9e5f363360728ab, type: 3}
   modelParent: {fileID: 1339184097}
+  allModelsObject: []
   currentModelObject: {fileID: 0}
   currentModelId: 0
   DecomposeSlider: {fileID: 0}
   changeColorUI: {fileID: 0}
-  allModelsObject: []
 --- !u!1 &1991990425
 GameObject:
   m_ObjectHideFlags: 0
