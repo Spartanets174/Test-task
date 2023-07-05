@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,27 +35,18 @@ public class gameManager : MonoBehaviour
     }
     //Функция, которая активирует выбранную способность в зависимости от номера выбранной опции в дропдаун меню
     public void DropdownActivateFeature(Dropdown dropdown)
-    {
-        
+    {       
         spawnModel();
         if (dropdown.value != 0)
         {
             Ifeature[] featureList = changeableObject.GetComponent<currentModelManager>().CurrentFeatureList;
-            switch (featureList[dropdown.value - 1].GetType().Name)
+            foreach (var presenterType in FeaturePresentorDictionary.featurePresentorDict)
             {
-                
-                case nameof(cutFeature):
-                    CutFeaturePresenter cutPresent = changeableObject.AddComponent(typeof(CutFeaturePresenter)) as CutFeaturePresenter;
-                    fillFeaturePresenterData(cutPresent, null, dropdown.value - 1);
-                    break;
-                case nameof(decomposeFeature):
-                    DecomposeFeaturePresenter decomposePresent = changeableObject.AddComponent(typeof(DecomposeFeaturePresenter)) as DecomposeFeaturePresenter;
-                    fillFeaturePresenterData(decomposePresent, DecomposeSlider, dropdown.value - 1);
-                    break;
-                case nameof(colorChange):
-                    ColorFeaturePresentor colorPresent = changeableObject.AddComponent(typeof(ColorFeaturePresentor)) as ColorFeaturePresentor;
-                    fillFeaturePresenterData(colorPresent, changeColorUI, dropdown.value - 1);
-                    break;
+                if (featureList[dropdown.value - 1].GetType().Name == presenterType.Key.Name)
+                {
+                    FeaturePresentor featurePresentor = changeableObject.AddComponent(presenterType.Value) as FeaturePresentor;
+                    fillFeaturePresenterData(featurePresentor, dropdown.value - 1);
+                }
             }
         }
     }
@@ -69,9 +61,9 @@ public class gameManager : MonoBehaviour
     }
 
     //Заполнения нужными данными презентор
-    void fillFeaturePresenterData(FeaturePresentor featurePresentor,GameObject UI, int dropdownValue)
+    void fillFeaturePresenterData(FeaturePresentor featurePresentor, int dropdownValue)
     {
-        featurePresentor.Init(this, UI);
+        featurePresentor.Init(this);
         featurePresentor.currentFeatureUIPresent(changeableObject.GetComponent<currentModelManager>(), dropdownValue);
     }
     
