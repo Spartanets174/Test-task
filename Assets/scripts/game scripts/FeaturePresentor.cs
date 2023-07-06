@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //Абстракция для презенторов способностей
 public abstract class FeaturePresentor:MonoBehaviour
 {
-    protected gameManager _gameManager;
-    public GameObject _uiPrefab;
-    public void Init(gameManager gameManager)
+    protected GameController _gameController;
+    protected GameObject _uiPrefab;
+    public void Init(GameController gameController)
     {
-        _gameManager = gameManager;
+        _gameController = gameController;
     }
-    public abstract void CurrentFeatureUIPresent(currentModelManager model, int featureId);
+    public abstract void CurrentFeatureUIPresent(Ifeature feature);
 }

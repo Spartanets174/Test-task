@@ -11,18 +11,19 @@ public class colorChange : Ifeature
     readonly string Name = "Смена цвета";
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
+    public GameObject Model { get ; set ; }
 
-    public void FeatureRealization(GameObject model)
+    public void FeatureRealization()
     {
-        ChangeColor(model, colorToChange);
+        ChangeColor(colorToChange);
         Debug.Log("Смена цвета");
     }
-    public void ChangeColor(GameObject model, Color color)
+    public void ChangeColor(Color color)
     {
         //Все части перекрашиваются
-        for (int i = 0; i < model.transform.childCount; i++)
+        for (int i = 0; i < Model.transform.childCount; i++)
         {
-            if (model.transform.GetChild(i).TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
+            if (Model.transform.GetChild(i).TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
             {
                 mesh.materials[0].color = color;
             }

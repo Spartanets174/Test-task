@@ -12,9 +12,11 @@ public class cutFeature : Ifeature
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
 
+    public GameObject Model { get ; set ; }
+
     [SerializeField] List<GameObject> partsToCut;
 
-    public void FeatureRealization(GameObject model)
+    public void FeatureRealization()
     {
         //Каждая нечетная часть модели просто отключается
         for (int i = 0; i < partsToCut.Count; i++)

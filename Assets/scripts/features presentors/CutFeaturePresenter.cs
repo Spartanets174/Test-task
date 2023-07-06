@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class CutFeaturePresenter : FeaturePresentor
 {
-    public override void CurrentFeatureUIPresent(currentModelManager model, int featureId)
+    public override void CurrentFeatureUIPresent(Ifeature feature)
     {
-        model.CurrentFeatureList[featureId].FeatureRealization(model.gameObject);
+        feature.FeatureRealization();
     }
 }

@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 //Основной скрипт для меню
 public class modelManager : MonoBehaviour
@@ -26,7 +24,7 @@ public class modelManager : MonoBehaviour
      
     public void clickOnModel(modelObject modelObject)
     {
-        menuBootstrap.modelsObjects.currentModelObject = modelObject;
+        /*menuBootstrap.modelsObjects.currentModelObject = modelObject;*/
         menu.toGame();
     }
 }

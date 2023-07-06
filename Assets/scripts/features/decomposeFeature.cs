@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 //Способность декомпозиции объектов
@@ -12,13 +10,15 @@ public class decomposeFeature : Ifeature
     public int minDistance=1;
     public float currentValue;
     public List<Vector3> startPos;
+    public GameObject Model { get; set; }
     [SerializeField] List<GameObject> partsToDecompose;
     //Указание имени самой способности
     readonly string Name = "Декомпозиция";
 
     //Передача имени в интерфейс
     string Ifeature.Name => Name;
-    public void FeatureRealization(GameObject model)
+
+    public void FeatureRealization()
     { 
         for (int i = 0; i < partsToDecompose.Count; i++)
         {

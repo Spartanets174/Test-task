@@ -7,5 +7,4 @@ using UnityEngine;
 public class allModelsObjects : ScriptableObject
 {
     public List<modelObject> listModelObject;
-    public modelObject currentModelObject;
 }

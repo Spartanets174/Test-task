@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 //словарь, который хранит нужные презенторы дл€ каждой способности
 public static class FeaturePresentorDictionary
 {
-    public static Dictionary<Type, Type> featurePresentorDict = new()
-    {   // люч - тип самой способности, значение - нужный презентор
+    public static Dictionary<Type, Type> featurePresenterDict = new()
+    {   // люч - тип самой способности, значение - тип нужного презентора
         {typeof(cutFeature), typeof(CutFeaturePresenter)},
         {typeof(decomposeFeature), typeof(DecomposeFeaturePresenter)},
         {typeof(colorChange), typeof(ColorFeaturePresentor)},

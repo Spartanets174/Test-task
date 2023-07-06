@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a15cba435706c49b37fa3c4c02e9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 1616796426035360941}
   CurrentFeatureList:
   - rid: 4112037814946758662
   - rid: 3892040364725633025
@@ -356,6 +357,7 @@ MonoBehaviour:
       type: {class: decomposeFeature, ns: , asm: Assembly-CSharp}
       data:
         maxDistance: 6
+        minDistance: 1
         currentValue: 0
         startPos: []
         partsToDecompose:

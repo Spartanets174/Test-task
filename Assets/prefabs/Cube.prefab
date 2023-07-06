@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a15cba435706c49b37fa3c4c02e9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 4558801435460779148}
   CurrentFeatureList:
   - rid: 4112037832844902400
   references:
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a15cba435706c49b37fa3c4c02e9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 0}
   CurrentFeatureList: []
   references:
     version: 2
