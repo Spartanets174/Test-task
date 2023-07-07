@@ -1,7 +1,9 @@
 public class CutFeaturePresenter : FeaturePresentor
 {
+    cutFeature cutFeature;
     public override void CurrentFeatureUIPresent(Ifeature feature)
     {
-        feature.FeatureRealization();
+        cutFeature = (cutFeature)feature;
+        cutFeature.FeatureRealization();
     }
 }

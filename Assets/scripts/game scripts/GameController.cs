@@ -1,20 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
-{   
-    public Canvas canvas;
-    public Transform modelParent;   
-
-    public GameObject DecomposeSlider;
-    public GameObject changeColorUI;
-
+{
+    
+    public Transform modelParent;
     public allModelsObjects ModelsObject;
     public GameObject changeableObject;
 
-    public event ModelHandler OnModelChanged;
+    public event ModelHandler OnModelChanged ;
 
     modelObject currentModelObject;   
     List<modelObject> allModelsObject;
@@ -29,9 +23,10 @@ public class GameController : MonoBehaviour
             {
                 currentModelId = i;
                 allModelsObject[i].isCurrentObject = false;
+                break;
             }
         }
-        changeCurrentModel(currentModelId);
+        ChangeCurrentModel(currentModelId);
     }
 
     //Функция для создания модели
@@ -46,16 +41,16 @@ public class GameController : MonoBehaviour
     public void NextModel()
     {
         currentModelId++;
-        changeCurrentModel(currentModelId);
+        ChangeCurrentModel(currentModelId);
     }
 
     public void PrevModel()
     {
         currentModelId--;
-        changeCurrentModel(currentModelId);
+        ChangeCurrentModel(currentModelId);
     }
-    //Проверка переданного в функцию id на принадлежность к области массива моделей и спавн нужной модели
-    private void changeCurrentModel(int currentId)
+    //Проверка переданного в функцию id для смены текущей модели на принадлежность к области массива моделей
+    private void ChangeCurrentModel(int currentId)
     {
         if (currentId > allModelsObject.Count - 1)
         {

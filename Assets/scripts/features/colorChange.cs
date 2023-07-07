@@ -22,7 +22,7 @@ public class colorChange : Ifeature
         //Все части перекрашиваются
         for (int i = 0; i < Model.transform.childCount; i++)
         {
-            if (Model.transform.GetChild(i).TryGetComponent<MeshRenderer>(out MeshRenderer mesh))
+            if (Model.transform.GetChild(i).TryGetComponent(out MeshRenderer mesh))
             {
                 mesh.materials[0].color = color;
             }
