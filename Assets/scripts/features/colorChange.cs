@@ -6,13 +6,12 @@ using UnityEngine;
 [Serializable]
 public class colorChange : Ifeature
 {
+    public GameObject Model { get; set; }
     public Color colorToChange;
-    //Указание имени самой способности
-    readonly string Name = "Смена цвета";
-    //Передача имени в интерфейс
-    string Ifeature.Name => Name;
-    public GameObject Model { get ; set ; }
 
+    readonly string Name = "Смена цвета";
+    string Ifeature.Name => Name;
+    
     public void FeatureRealization()
     {
         ChangeColor(colorToChange);

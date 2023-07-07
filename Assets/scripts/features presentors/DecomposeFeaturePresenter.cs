@@ -6,9 +6,11 @@ public class DecomposeFeaturePresenter : FeaturePresentor
     decomposeFeature decFeature;
     public override void CurrentFeatureUIPresent(Ifeature feature)
     {
-        _uiPrefab = _gameController.DecomposeSlider;
-        GameObject sliderParent = Instantiate(_uiPrefab, Vector3.zero,Quaternion.identity, _gameController.canvas.transform);
-        sliderParent.transform.GetChild(0).TryGetComponent(out Slider slider);
+        decFeature = (decomposeFeature)feature;
+        _uiPrefab = _gameController.DecomposeSlider;        
+        _uiPrefab = Instantiate(_uiPrefab ,_gameController.canvas.transform);
+        _uiPrefab.transform.localPosition = new Vector3(_gameController.canvas.transform.position.x - 136, 0, 0);
+        _uiPrefab.TryGetComponent(out Slider slider);
         slider.minValue = decFeature.minDistance;
         slider.maxValue = decFeature.maxDistance;
         for (int i = 0; i < feature.Model.transform.childCount; i++)
@@ -21,5 +23,4 @@ public class DecomposeFeaturePresenter : FeaturePresentor
             decFeature.FeatureRealization();
         });
     }
-
 }

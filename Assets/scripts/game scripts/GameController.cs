@@ -12,8 +12,9 @@ public class GameController : MonoBehaviour
     public GameObject changeColorUI;
 
     public allModelsObjects ModelsObject;
-
     public GameObject changeableObject;
+
+    public event ModelHandler OnModelChanged;
 
     modelObject currentModelObject;   
     List<modelObject> allModelsObject;
@@ -21,15 +22,16 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        currentModelObject = ModelsObject.listModelObject[0];
         allModelsObject = ModelsObject.listModelObject;
-        CreateNewModel();
-    }
-    //Функция для создания модели и вызова функции смены интерфейса
-    public void CreateNewModel()
-    {
-        /*UiManager.ChangeUI(currentModelObject);*/
-        SpawnModel();
+        for (int i = 0; i < allModelsObject.Count; i++)
+        {
+            if (allModelsObject[i].isCurrentObject)
+            {
+                currentModelId = i;
+                allModelsObject[i].isCurrentObject = false;
+            }
+        }
+        changeCurrentModel(currentModelId);
     }
 
     //Функция для создания модели
@@ -63,8 +65,11 @@ public class GameController : MonoBehaviour
         {
             currentId = allModelsObject.Count - 1;
         }
+        
         currentModelObject = allModelsObject[currentId];
         currentModelId = currentId;
-        CreateNewModel();
+        OnModelChanged?.Invoke(currentModelObject);
+        SpawnModel();
     }
 }
+public delegate void ModelHandler(modelObject currentModelObject);

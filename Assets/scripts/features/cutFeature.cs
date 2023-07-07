@@ -7,13 +7,10 @@ using UnityEngine;
 //Способность разреза объектов
 public class cutFeature : Ifeature
 {
-    //Указание имени самой способности
+    public GameObject Model { get; set; }
+
     readonly string Name = "Разрез";
-    //Передача имени в интерфейс
     string Ifeature.Name => Name;
-
-    public GameObject Model { get ; set ; }
-
     [SerializeField] List<GameObject> partsToCut;
 
     public void FeatureRealization()

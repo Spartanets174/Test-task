@@ -10,10 +10,10 @@ public class modelObject : ScriptableObject
 {
     //Сама моделька
     public GameObject model;
+    public Sprite modelImage;
     //Текстовое описание и имя
     public string modelName;
     public string modelDescription;
-    public Sprite modelImage;
-    
+    public bool isCurrentObject;
 };    
 

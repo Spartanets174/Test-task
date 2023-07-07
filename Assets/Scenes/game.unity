@@ -393,8 +393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 137331578}
   modelParent: {fileID: 1339184097}
-  DecomposeSlider: {fileID: 4113531006575377191, guid: 1f9c634c323b6b041aaae55be97926df, type: 3}
-  changeColorUI: {fileID: 4501716803147846894, guid: a2c8d80c9ab10c94cacb020628548cc5, type: 3}
+  DecomposeSlider: {fileID: 8293492206120356287, guid: 6fd4fa3074ed97044a9efedfe7ff277a, type: 3}
+  changeColorUI: {fileID: 5734811090730552213, guid: 8684761e88d071c439cc48ae3902edd8, type: 3}
   ModelsObject: {fileID: 11400000, guid: f91acd5d2ecde4b4188d93d13867fc42, type: 2}
   changeableObject: {fileID: 0}
 --- !u!4 &125343878

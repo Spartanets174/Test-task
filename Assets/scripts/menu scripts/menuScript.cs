@@ -12,10 +12,6 @@ public class menuScript : MonoBehaviour
         Debug.Log("out");
         Application.Quit();
     }
-    public void toGame()
-    {
-        SceneManager.LoadScene("game");
-    }
     public void toMenu()
     {
         SceneManager.LoadScene("menu");

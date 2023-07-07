@@ -9,5 +9,9 @@ public abstract class FeaturePresentor:MonoBehaviour
     {
         _gameController = gameController;
     }
+    private void OnDestroy()
+    {
+        Destroy(_uiPrefab);
+    }
     public abstract void CurrentFeatureUIPresent(Ifeature feature);
 }

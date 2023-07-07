@@ -11,11 +11,9 @@ public class decomposeFeature : Ifeature
     public float currentValue;
     public List<Vector3> startPos;
     public GameObject Model { get; set; }
-    [SerializeField] List<GameObject> partsToDecompose;
-    //Указание имени самой способности
-    readonly string Name = "Декомпозиция";
 
-    //Передача имени в интерфейс
+    [SerializeField] List<GameObject> partsToDecompose;
+    readonly string Name = "Декомпозиция";
     string Ifeature.Name => Name;
 
     public void FeatureRealization()
