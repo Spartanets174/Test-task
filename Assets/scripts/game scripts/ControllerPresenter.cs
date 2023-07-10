@@ -7,10 +7,9 @@ using UnityEngine.UI;
 
 public class ControllerPresenter : MonoBehaviour
 {
-    public Canvas canvas;
-
     public MyDictioanary TypePresenterDict;
 
+    public Canvas canvas;
     public Text nameModel;
     public Text description;
     public Button next;
@@ -24,7 +23,6 @@ public class ControllerPresenter : MonoBehaviour
     private void Awake()
     {
         GameController.OnModelChanged += ChangeUI;
-        GameController.OnModelChanged += DestroyUI;
         next.onClick.AddListener(() =>
         {
             GameController.NextModel();
@@ -37,6 +35,7 @@ public class ControllerPresenter : MonoBehaviour
 
     public void ChangeUI(modelObject currentModelObject)
     {
+        Destroy(spawnedUI);
         nameModel.text = currentModelObject.modelName;
         description.text = currentModelObject.modelDescription;
         currentModelManager currentModel = currentModelObject.model.GetComponent<currentModelManager>();
@@ -70,7 +69,7 @@ public class ControllerPresenter : MonoBehaviour
             
             foreach (var (key, item) in TypePresenterDict)
             {
-                if (featureList[value].ToString() == item.featureType.ToString())
+                if (featureList[value].GetType() == item.featureType.Type)
                 {
                     spawnedUI = Instantiate(key, Vector3.zero, Quaternion.identity, canvas.transform);
                     FeaturePresentor featurePresentor = spawnedUI.GetComponent<FeaturePresentor>();
@@ -81,11 +80,6 @@ public class ControllerPresenter : MonoBehaviour
                 }
             }                    
         }
-    }
-
-    private void DestroyUI(modelObject currentModelObject)
-    {
-        Destroy(spawnedUI);
     }
 }
 

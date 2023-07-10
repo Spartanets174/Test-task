@@ -356,7 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4feb12e1cdd0f874093ae4b1ddeb7f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 137331578}
   TypePresenterDict:
     reorderableList:
       canAdd: 1
@@ -364,7 +363,7 @@ MonoBehaviour:
       draggable: 1
       expandable: 1
       multipleSelection: 1
-      isExpanded: 1
+      isExpanded: 0
       label:
         m_Text: Keys
         m_Image: {fileID: 0}
@@ -379,7 +378,7 @@ MonoBehaviour:
       elementNameOverride: 
       elementIcon: {fileID: 0}
     reqReferences: {fileID: 0}
-    isExpanded: 1
+    isExpanded: 0
     _keyValues:
     - {fileID: 5980283168086871196, guid: 516ef3cbe5ed0284db0de68827116029, type: 3}
     - {fileID: 690955994119036871, guid: a7d690c05925fca4397d520116cdcdd4, type: 3}
@@ -404,6 +403,7 @@ MonoBehaviour:
         GUID: 9ada01d67f6d87a489d05202db9ba033
         _typeNameAndAssembly: decomposeFeature, Assembly-CSharp
         _suppressLogs: 0
+  canvas: {fileID: 137331578}
   nameModel: {fileID: 1813943075}
   description: {fileID: 1076165790}
   next: {fileID: 1689927790}
