@@ -1,10 +1,7 @@
 using RotaryHeart.Lib.SerializableDictionary;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
+using TypeReferences;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,12 +9,7 @@ public class ControllerPresenter : MonoBehaviour
 {
     public Canvas canvas;
 
-    public MyDictioanary dict;
-    public List<GameObject> ViewList;
-
-    public GameObject DecomposeView;
-    public GameObject changeColorView;
-    public GameObject cutView;
+    public MyDictioanary TypePresenterDict;
 
     public Text nameModel;
     public Text description;
@@ -32,6 +24,7 @@ public class ControllerPresenter : MonoBehaviour
     private void Awake()
     {
         GameController.OnModelChanged += ChangeUI;
+        GameController.OnModelChanged += DestroyUI;
         next.onClick.AddListener(() =>
         {
             GameController.NextModel();
@@ -74,36 +67,34 @@ public class ControllerPresenter : MonoBehaviour
         if (value >= 0)
         {           
             Ifeature[] featureList = GameController.changeableObject.GetComponent<currentModelManager>().CurrentFeatureList;
-            FeaturePresentor featurePresentor = null;
-       /*     for (int i = 0; i < ViewList.Count; i++)
+            
+            foreach (var (key, item) in TypePresenterDict)
             {
-                if (featureList[value].Equals(ViewList[i].))
+                if (featureList[value].ToString() == item.featureType.ToString())
                 {
-
+                    spawnedUI = Instantiate(key, Vector3.zero, Quaternion.identity, canvas.transform);
+                    FeaturePresentor featurePresentor = spawnedUI.GetComponent<FeaturePresentor>();
+                    spawnedUI.transform.localPosition = Vector3.zero;
+                    //Заполнения нужными данными презентор
+                    featurePresentor.Init(GameController);
+                    featurePresentor.CurrentFeatureUIPresent(featureList[value]);
                 }
-            }*/
-           
-            if (featureList[value].Name == "Декомпозиция")
-            {
-                spawnedUI = Instantiate(DecomposeView,Vector3.zero,Quaternion.identity, canvas.transform);
-               featurePresentor = spawnedUI.GetComponent<DecomposeFeaturePresenter>();
-            }
-            if (featureList[value].Name == "Смена цвета")
-            {
-                spawnedUI = Instantiate(changeColorView, Vector3.zero, Quaternion.identity, canvas.transform);
-                featurePresentor = spawnedUI.GetComponent<ColorFeaturePresentor>();
-            }
-            if (featureList[value].Name == "Разрез")
-            {
-                spawnedUI = Instantiate(cutView, Vector3.zero, Quaternion.identity, canvas.transform);
-                featurePresentor = spawnedUI.GetComponent<CutFeaturePresenter>();
-            }
-            spawnedUI.transform.localPosition = Vector3.zero;
-            //Заполнения нужными данными презентор
-            featurePresentor.Init(GameController);
-            featurePresentor.CurrentFeatureUIPresent(featureList[value]);
+            }                    
         }
     }
+
+    private void DestroyUI(modelObject currentModelObject)
+    {
+        Destroy(spawnedUI);
+    }
 }
+
+
 [Serializable]
-public class MyDictioanary : SerializableDictionaryBase<string, string> { }
+public class MyDictioanary : SerializableDictionaryBase<GameObject, FeatureType> { }
+
+[Serializable]
+public class FeatureType 
+{
+    [Inherits(typeof(Ifeature), ShortName = true)] public TypeReference featureType;
+}
